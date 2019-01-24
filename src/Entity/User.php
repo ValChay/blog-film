@@ -236,4 +236,8 @@ class User implements UserInterface
 
         return $this;
     }
+    public static function getRolesChoices(): array{
+
+        return ['ROLE_USER','ROLE_ADMIN','ROLE_HOST'];
+    }
 }
