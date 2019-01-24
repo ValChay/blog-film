@@ -31,6 +31,16 @@ class Comment
      */
     private $creation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="comment")
+     */
+    private $article;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +78,30 @@ class Comment
     public function setCreation(\DateTimeInterface $creation): self
     {
         $this->creation = $creation;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
