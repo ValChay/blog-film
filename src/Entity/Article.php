@@ -32,12 +32,6 @@ class Article
      * @ORM\Column(type="text")
      */
     private $resume;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $creation;
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
      */
@@ -75,12 +69,12 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage($image): self
     {
         $this->image = $image;
 

@@ -11,7 +11,6 @@
             <th>Title</th>
             <th>Image</th>
             <th>Resume</th>
-            <th>Creation</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -20,10 +19,8 @@
         {% for article in articles %}
             <tr>
                 <td>{{ article.title }}</td>
-                <td>{{ article.image }}</td>
-                <td>{{ article.resume }}</td>
-                <td>{{ article.creation ? article.creation|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
+                <td><img src="{{ asset('uploads/table_images/' ~ article.image ) }}" class="img"></td>
+                <td>{{ article.resume }}</td><td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
                     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
                 </td>

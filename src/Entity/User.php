@@ -100,6 +100,11 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
+    public static function getRolesChoices(): array{
+
+        return ['ROLE_USER','ROLE_ADMIN','ROLE_HOST'];
+    }
+
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -236,8 +241,5 @@ class User implements UserInterface
 
         return $this;
     }
-    public static function getRolesChoices(): array{
 
-        return ['ROLE_USER','ROLE_ADMIN','ROLE_HOST'];
-    }
 }
